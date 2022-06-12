@@ -31,7 +31,20 @@ if(isset($_POST["kembali"])){
     header("Location: data.php");
     exit;
 }
+// Backup
+if(isset($_POST["ubah"])){  
+    header("Location: data_ubah.php");
+    $_SESSION["id_game"] = $_POST["id_game"];
+    $_SESSION["genre"] = $_POST["genre"];
+    $_SESSION["nama_game"] = $_POST["nama_game"];
+    $_SESSION["tanggal_rilis"] = $_POST["tanggal_rilis"];
+    $_SESSION["deskripsi_game"] = $_POST["deskripsi_game"];
+    $_SESSION["link_game"] = $_POST["link_game"];
+    exit;
+}
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,7 +74,7 @@ if(isset($_POST["kembali"])){
                         <input type="text" class="form-control" name="nama_game" id="nama_game" title="Nama game" value="<?=$game['nama_game']; ?>" required>
                     </div>
                     <div class="mb-3">
-                        <label for="genre" class="form-label">Genre game :</label>
+                        <label for="genre" class="form-label">Genre game : <?=$genre['genre']; ?></label>
                             <select name="genre" class="form-select" aria-label="Default select" id="genre" title="Genre game">
                                 <option value="1" selected>Action</option>
                                 <option value="2">Fighting</option>
@@ -99,48 +112,29 @@ if(isset($_POST["kembali"])){
     </div>
 </body>
 
-<?php
+    <!-- Script JQuery -->
+    <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
 
-// Jika tombol simpan ditekan
-if(isset($_POST["ubah"])){
+
+    <!-- Script AJAX (CRUD) -->
+    <script type="text/javascript">
+
+        // Jika tombol ubah game baru ditekan (UPDATE)
+        $("#ubah").click(function(){
+            
+            // Koneksi dengan ajax
+            $.ajax({
+                url: "data_ubah.php",
+                method: "SESSION",
+
+                // Jika sukses maka menampilkan tampil data
+                success: function(_){
+                    window.location.href('data_ubah.php')
+                }
+            });
+        });
+    </script>
     
-    // Mengambil Variabel yang dikirim
-    $id_game = $_POST["id_game"];
-    $genre = $_POST["genre"];
-    $nama_game = $_POST["nama_game"];
-    $tanggal_rilis = $_POST["tanggal_rilis"];
-    $deskripsi_game = $_POST["deskripsi_game"];
-    $link_game = $_POST["link_game"];
 
-    var_dump($_POST["deskripsi_game"]);
-
-    // Tambah data ke database
-    $query = "UPDATE galeri_game SET
-                    id_genre_game = '$genre',
-                    nama_game = '$nama_game',
-                    tanggal_rilis = '$tanggal_rilis',
-                    deskripsi_game = '$deskripsi_game',
-                    link_game = '$link_game'
-                    WHERE id_galeri_game = $id_game
-                    ";
-    mysqli_query($conn, $query);
-    $cek = mysqli_affected_rows($conn);
-    if($cek > 0){
-        echo "
-            <script>
-                alert('Data berhasil diubah');
-                document.location.href = 'data.php';
-            </script>
-        ";
-    } else {
-        echo "
-            <script>
-                alert('Data gagal diubah');
-            </script>
-        ";
-    }
-}
-
-?>
 
 </html>

@@ -1,4 +1,4 @@
-===== GAMEAJA.TAPS V.1.1 =====
+===== GAMEAJA.TAPS V.1.2 =====
 
 Author	   : Kelompok 6 PWEB C
 Created by : - Muhammad Rosyid Iqbal Haqiqi
@@ -14,4 +14,4 @@ Petunjuk SQL:
 - kemungkinan fitur web bisa berubah
 
 Next Update:
-V.1.2
+V.1.3

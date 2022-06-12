@@ -12,7 +12,7 @@ if(!isset($_SESSION["login"])){
 // Koneksi ke conn.php
 require "../conn.php";
 
-// Cek tombol Tonton ditekan
+// Cek tombol Download ditekan
 if(isset($_POST["download"])){
     $game_title = $_POST["nama_game"];
     $link = "Location: ";

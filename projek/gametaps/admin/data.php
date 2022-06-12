@@ -32,7 +32,7 @@ $user = $_SESSION["user"];
 <body>
 
     <!-- NAVBAR -->
-    <nav class="navbar stiky-top navbar-light bg-light">
+    <nav class="navbar fixed-top navbar-light bg-light">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1" style="margin-left: 40px;">Halo, selamat datang (Admin)! <span style="margin-left: 10px;">:</span> <strong><?=strtoupper($user["nama"])?></strong></span>
             <div style="margin-right: 40px;">
@@ -43,7 +43,7 @@ $user = $_SESSION["user"];
     </nav>    
 
     <!-- JUDUL TENGAH -->
-    <div class="container" style="text-align: center; margin-top: 50px; margin-bottom: 50px;">
+    <div class="container" style="text-align: center; margin-top: 150px; margin-bottom: 50px;">
         <h4><strong>GAMEAJA.TAPS</strong></h4>
     </div>
 
@@ -127,7 +127,7 @@ $user = $_SESSION["user"];
             },
         });
 
-        // Jika tombol simpan film baru ditekan (CREATE)
+        // Jika tombol simpan game baru ditekan (CREATE)
         $("#tambah").click(function(){
 
             // Mengambil value dari tiap form

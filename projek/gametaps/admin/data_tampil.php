@@ -34,7 +34,7 @@ while($game = mysqli_fetch_assoc($gamesbase)){
                     <div class="detail_game d-flex justify-content-around" >
                         <a style="position: relative;" href="ubah.php?id='. $game["id_galeri_game"] .'" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
                         <a style="width: 50%; position: relative;" href="detail_game.php?id='. $game["id_galeri_game"] .'" class="btn btn-success">Detail Game</a>
-                        <a style="position: relative;" href="hapus.php?id='. $game["id_galeri_game"] .'" class="btn btn-danger"><i class="bi bi-trash3"></i></a>
+                        <a style="position: relative;" href="data_hapus.php?id='. $game["id_galeri_game"] .'" class="btn btn-danger"><i class="bi bi-trash3"></i></a>
                     </div>
                 </center>
             </div>
